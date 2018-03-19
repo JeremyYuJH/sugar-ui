@@ -1,0 +1,139 @@
+@import '~@/style/variables/variables.scss';
+@import '~@/style/mixin/mixin.scss';
+@import '~@/style/tool/tool.scss';
+.sugar-popup-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .33);
+    transition: all .2s;
+    z-index: 100
+}
+
+.sugar-popup-container {
+    position: fixed;
+    z-index: 101;
+    transition: transform .35s;
+}
+
+.sugar-popup-mask-enter-active {
+    transition: opacity .3s;
+    opacity: 1
+}
+
+.sugar-popup-mask-enter {
+    opacity: .3
+}
+
+.sugar-popup-mask-leave {
+    opacity: 1
+}
+
+.sugar-popup-mask-leave-active {
+    transition: opacity .3s;
+    opacity: 0
+}
+
+
+/*
+ position:left
+*/
+
+.sugar-popup-left-enter {
+    transform: translate3d(-100%, 0, 0)
+}
+
+.sugar-popup-left-leave {
+    transform: translate3d(0, 0, 0)
+}
+
+.sugar-popup-left-leave-to {
+    transform: translate3d(-100%, 0, 0)
+}
+
+
+/*
+ position:right
+*/
+
+.sugar-popup-right-enter {
+    transform: translate3d(100%, 0, 0)
+}
+
+.sugar-popup-right-leave {
+    transform: translate3d(0, 0, 0)
+}
+
+.sugar-popup-right-leave-to {
+    transform: translate3d(100%, 0, 0)
+}
+
+
+/*
+ position:top
+*/
+
+.sugar-popup-top-enter {
+    transform: translate3d(0, -100%, 0)
+}
+
+.sugar-popup-top-leave {
+    transform: translate3d(0, 0, 0)
+}
+
+.sugar-popup-top-leave-to {
+    transform: translate3d(0, -100%, 0)
+}
+
+
+/*
+ position:bottom
+*/
+
+.sugar-popup-bottom-enter {
+    transform: translate3d(0, 100%, 0)
+}
+
+.sugar-popup-bottom-leave {
+    transform: translate3d(0, 0, 0)
+}
+
+.sugar-popup-bottom-leave-to {
+    transform: translate3d(0, 100%, 0)
+}
+
+
+/*
+ position:center
+*/
+
+.sugar-popup-center {
+    @extend .flex-box-center;
+}
+
+.sugar-popup-center-enter-active {
+    transition-property: transform;
+    transition-duration: .38s;
+    transition-timing-function: cubic-bezier(0.395, 0.225, 0.170, 1.320);
+}
+
+.sugar-popup-center-enter {
+    transform: scale(0)
+}
+
+.sugar-popup-center-leave {
+    transform: scale(1)
+}
+
+.sugar-popup-center-leave-to {
+    transform: scale(.5);
+    opacity: 0;
+}
+
+.sugar-popup-center-leave-active {
+    transition-property: transform, opacity;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0.395, 0.225, 0.170, 1.320);
+}

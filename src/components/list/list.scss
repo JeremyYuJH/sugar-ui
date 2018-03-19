@@ -1,0 +1,30 @@
+@import '~@/style/variables/variables.scss';
+@import '~@/style/mixin/mixin.scss';
+@import '~@/style/tool/tool.scss';
+.sugar-list-warp {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    .sugar-item-active {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .sugar-list-nav-warp {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: Helvetica;
+        color: $sugar-color-gray-light-s;
+        &>ul {
+            &>li {
+                padding: 0 16px;
+                &:not(:last-child) {
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+}

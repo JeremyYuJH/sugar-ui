@@ -1,0 +1,13 @@
+@import '~@/style/variables/variables.scss';
+@import '~@/style/mixin/mixin.scss';
+@import '~@/style/tool/tool.scss';
+.sugar-scroll-wrap {
+    height: 100%;
+    position: relative;
+    .sugar-pulldown-warp {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        @extend .flex-box-center;
+    }
+}

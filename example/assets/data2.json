@@ -1,0 +1,27 @@
+[
+  {
+    "text": "javascript",
+    "value": 0
+  },
+  {
+    "text": "css",
+    "value": 1
+  },
+  {
+    "text": "html",
+    "value": 2,
+    "disabled": true
+  },
+  {
+    "text": "angular",
+    "value": 3
+  },
+  {
+    "text": "vue",
+    "value": 4
+  },
+  {
+    "text": "react",
+    "value": 5
+  }
+]
