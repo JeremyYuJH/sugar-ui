@@ -9,8 +9,8 @@
           {{component.title}}
         </section>
         <sugar-grid :col="3" spacing="1x" vertical="1px" slot="group-item" slot-scope="param" class="padding-5">
-          <sugar-grid-item @click.native="$router.push(row.path)" v-for="row in param.rows" :key="row.title" class="item flex-box-center">
-            {{row.title}}
+          <sugar-grid-item @click.native="$router.push(row)" v-for="row in param.rows" :key="row" class="item flex-box-center">
+            {{row}}
           </sugar-grid-item>
         </sugar-grid>
       </sugar-group-item>
@@ -20,6 +20,7 @@
 <script>
 import componentList from '../assets/components.json'
 export default {
+  name: "case-page",
   components: {
 
   },

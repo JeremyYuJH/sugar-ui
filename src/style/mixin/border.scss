@@ -1,4 +1,5 @@
 @mixin border-1px($color:$sugar-color-gray-light-s, $position:all) {
+    box-sizing: border-box;
     @if $position==all {
         border: $color solid 1px;
     }
@@ -11,6 +12,7 @@
     @else if $position==left {
         border-left: $color solid 1px;
     }
+    content: '';
     transform: scale(.5) translateZ(0);
     width: 200%;
     height: 200%;
@@ -19,5 +21,4 @@
     top: 0;
     transform-origin: 0 0;
     pointer-events: none;
-    box-sizing: border-box;
 }

@@ -18,6 +18,8 @@ import Scroll from './scroll/';
 import { GroupList, GroupItem } from './list/index.js'
 import { Grid, GridItem } from './grid/'
 import Cell from './cell/'
+import Header from './header/Header.vue'
+import { Tab, TabItem } from './tab/index.js'
 export {
   NavBar,
   PageContent,
@@ -37,5 +39,8 @@ export {
   GroupItem,
   Grid,
   GridItem,
-  Cell
+  Cell,
+  Header,
+  Tab,
+  TabItem
 }

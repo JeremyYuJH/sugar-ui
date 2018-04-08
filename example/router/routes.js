@@ -1,73 +1,27 @@
-import Index from '../pages/Index.vue'
-import ShowCase from '../pages/ShowCase.vue'
-import Button from "../pages/PageButton.vue";
-import CheckBox from "../pages/PageCheckBox.vue"
-import Viewer from "../pages/PageViewer.vue"
-import Popup from "../pages/PagePopup.vue"
-import Picker from "../pages/PagePicker.vue"
-import Switch from '../pages/PageSwitch.vue'
-import Scroll from '../pages/PageScroll.vue'
-import GroupList from '../pages/PageGroupList.vue'
-import Grid from '../pages/PageGrid.vue'
-import Radio from '../pages/PageRadio.vue'
-import Dialog from '../pages/PageDialog.vue'
-import Cell from '../pages/PageCell.vue'
-
+import components from '../assets/components.json'
+let routers = [];
+components.map((component) => {
+  routers = routers.concat(component.list)
+})
 export default [
   {
     path: "/",
-    component: Index
+    component() {
+      return import('../pages/Index.vue')
+    }
   },
   {
     path: "/components",
-    component: ShowCase
+    component() {
+      return import('../pages/ShowCase.vue')
+    }
   },
-  {
-    path: "/button",
-    component: Button
-  },
-  {
-    path: "/checkbox",
-    component: CheckBox
-  },
-  {
-    path: "/radio",
-    component: Radio
-  },
-  {
-    path: "/viewer",
-    component: Viewer
-  },
-  {
-    path: "/popup",
-    component: Popup
-  },
-  {
-    path: "/picker",
-    component: Picker
-  },
-  {
-    path: "/switch",
-    component: Switch
-  },
-  {
-    path: "/scroll",
-    component: Scroll
-  },
-  {
-    path: "/groupList",
-    component: GroupList
-  },
-  {
-    path: "/grid",
-    component: Grid
-  },
-  {
-    path: "/dialog",
-    component: Dialog
-  },
-  {
-    path: "/cell",
-    component: Cell
-  }
-];
+  ...routers.map((item) => {
+    return {
+      path: `/${item}`,
+      component() {
+        return import(`../pages/${item}.vue`)
+      }
+    }
+  })
+]

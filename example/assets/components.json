@@ -2,65 +2,35 @@
   {
     "title": "Basis",
     "list": [
-      {
-        "path": "button",
-        "title": "Button"
-      },
-      {
-        "path": "checkbox",
-        "title": "Checkbox"
-      },
-      {
-        "path": "radio",
-        "title": "Radio"
-      },
-      {
-        "path": "switch",
-        "title": "Switch"
-      }
+      "Button",
+      "CheckBox",
+      "Radio",
+      "Switch",
+      "Tab"
     ]
   },
   {
     "title": "Pop-up",
     "list": [
-      {
-        "path": "popup",
-        "title": "Popup"
-      },
-      {
-        "path": "picker",
-        "title": "Picker"
-      },
-      {
-        "path": "dialog",
-        "title": "Dialog"
-      }
+      "Popup",
+      "Picker",
+      "Dialog",
+      "Radio"
     ]
   },
   {
     "title": "Layout",
     "list": [
-      {
-        "path": "grid",
-        "title": "Grid"
-      },
-      {
-        "path": "cell",
-        "title": "Cell"
-      }
+      "Grid",
+      "Cell",
+      "Header"
     ]
   },
   {
     "title": "Scroll",
     "list": [
-      {
-        "path": "scroll",
-        "title": "Scroll"
-      },
-      {
-        "path": "groupList",
-        "title": "GroupList"
-      }
+      "Scroll",
+      "GroupList"
     ]
   }
 ]

@@ -1,6 +1,6 @@
 @import '~@/style/variables/variables.scss';
 @import '~@/style/mixin/mixin.scss';
-$sugar-button-height:42px!default;
+$sugar-button-height:42px !default;
 $sugar-button-height-small:32px;
 $sugar-button-height-big:50px;
 $sugar-button-padding:0 20px !default;
@@ -10,6 +10,9 @@ $sugar-button-size-big: $fontsize-large-x;
 $sugar-button-color:$sugar-color-gray;
 $sugar-button-color-light:$color-white;
 $sugar-button-radius:$sugar-border-radius-1;
+//active color
+$sugar-button-theme-default-active-color:#505050;
+$sugar-button-theme-default-active-color:#3b64ad;
 .sugar-btn {
     display: inline-block;
     border: none;
@@ -21,7 +24,6 @@ $sugar-button-radius:$sugar-border-radius-1;
     border-radius: $sugar-button-radius;
     padding: $sugar-button-padding;
     background: $sugar-button-color;
-    overflow: hidden;
     &,
     &::after {
         transition: all .3s;
@@ -51,9 +53,11 @@ $sugar-button-radius:$sugar-border-radius-1;
         background: transparent;
         color: $sugar-button-color;
         &::after {
-            content: '';
             @include border-1px;
             border-radius: $sugar-button-radius;
+        }
+        &:active {
+            color: $color-white;
         }
         .sugar-btn-waiting-path {
             stroke: $sugar-button-color
@@ -65,9 +69,15 @@ $sugar-button-radius:$sugar-border-radius-1;
             border-radius: $sugar-border-radius-round;
         }
     }
+    &-default:active {
+        background-color: $sugar-button-theme-default-active-color;
+    }
     &-primary {
         &::after {
             border-color: $color-sugar;
+        }
+        &:active {
+            background-color: $sugar-button-theme-default-active-color;
         }
         background: $color-sugar;
     }
@@ -76,6 +86,12 @@ $sugar-button-radius:$sugar-border-radius-1;
         color: $color-sugar;
         .sugar-btn-waiting-path {
             stroke: $color-sugar
+        }
+        &:active {
+            background-color: $color-sugar;
+            :after {
+                border: none;
+            }
         }
     }
     &-green {

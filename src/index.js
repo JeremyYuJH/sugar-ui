@@ -17,7 +17,10 @@ import {
   Popup,
   Picker,
   Dialog,
-  Cell
+  Cell,
+  Header,
+  Tab,
+  TabItem
 } from './components/index'
 
 const components = [
@@ -36,7 +39,10 @@ const components = [
   GroupItem,
   Grid,
   GridItem,
-  Cell
+  Cell,
+  Header,
+  Tab,
+  TabItem
 ]
 
 function install(Vue) {
@@ -45,6 +51,9 @@ function install(Vue) {
   }
   install.installed = true;
   components.map((component) => {
+    !component.install && (component.install = (Vue) => {
+      Vue.component(component.name, component);
+    })
     component.install(Vue);
   })
   Vue.prototype.$SugarPopup = Popup;

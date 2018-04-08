@@ -1,0 +1,42 @@
+@import '~@/style/variables/variables.scss';
+@import '~@/style/mixin/mixin.scss';
+@import '~@/style/tool/tool.scss';
+$sugar-header-size-height-default:44px !default;
+$sugar-header-size-font-default:$fontsize-large-x !default;
+$sugar-header-size-icon-default:$fontsize-large-xx !default;
+$sugar-header-tool-padding:0 5px !default;
+.sugar-header {
+    position: relative;
+    &-size-default {
+        height: $sugar-header-size-height-default;
+        font-size: $sugar-header-size-font-default;
+        .sugar-header-tools {
+            font-size: $sugar-header-size-icon-default;
+        }
+    }
+    &-theme-default {
+        background-color: $color-white;
+    }
+    &>* {
+        height: 100%;
+    }
+    .sugar-header-center {
+        @extend .flex-box-center;
+        width: 100%;
+        font-weight: 600;
+    }
+    .sugar-header-tools {
+        @extend .flex-box-center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        &-right {
+            left: auto;
+            right: 0;
+        }
+        &>* {
+            height: 100%;
+            padding: $sugar-header-tool-padding;
+        }
+    }
+}

@@ -37,7 +37,7 @@
   </sugar-page-content>
 </template>
 <script>
-import Detail from './PageCheckBoxDetail.vue'
+import Detail from './CheckBoxDetail.vue'
 import data1 from '../assets/data1.json'
 import data2 from '../assets/data2.json'
 export default {
