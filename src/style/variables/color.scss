@@ -1,14 +1,13 @@
-//basic
-$color-white:#fff;
-$color-sugar:#4472c4;
-//gray
-$sugar-color-gray:#666 !default;
-$sugar-color-gray-light:#999 !default;
-$sugar-color-gray-light-s:#aaa !default;
-$sugar-color-gray-light-ss:#ccc !default;
-$sugar-color-gray-light-sss:#e5e5e5 !default;
-$sugar-color-gray-light-ssss:#fbfbfb !default;
 //theme
-$sugar-color-green:#71ae48 !default;
-$sugar-color-orange:#ed7d31 !default;
-$sugar-color-red:#c00000 !default;
+$sugar-theme-primary:#4472c4 !default;
+$sugar-theme-primary-active:#3962ab !default;
+$sugar-theme-success:#71ae48 !default;
+$sugar-theme-success-active:#568835 !default;
+$sugar-theme-warning:#ed7d31 !default;
+$sugar-theme-warning-active:#c76828 !default;
+$sugar-theme-alert:#c00000 !default;
+$sugar-theme-alert-active:#a00202 !default;
+//color
+$sugar-color-light:#cccccc;
+$sugar-color-gray:#666666;
+$sugar-color-gray-dark:#333333;

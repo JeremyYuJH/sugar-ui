@@ -1,0 +1,11 @@
+@import "@sugarSrc/style/variables/size.scss";
+//左右padding
+$sugar-button-padding :10px;
+//默认高度
+$sugar-button-height:38px;
+//large尺寸高度
+$sugar-button-height-large:46px;
+//small尺寸高度
+$sugar-button-height-small:30px;
+//默认风格色彩
+$sugar-button-theme-default:$sugar-color-gray;

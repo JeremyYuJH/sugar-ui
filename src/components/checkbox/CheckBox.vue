@@ -1,73 +1,74 @@
 <template>
-  <div class="sugar-checkbox-wrap" :class="{'sugar-checkbox-checked':checked,'sugar-checkbox-disabled':disabled}">
-    <input type="checkbox" :disabled="disabled" @change="updateValue($event.target.checked)" v-bind:checked="checked">
-    <span>
-      <transition name="checkbox-ani">
-        <i class="sugaric-ok" v-if="checked"></i>
-      </transition>
-    </span>
-    <label>
-      <slot></slot>
-    </label>
-  </div>
+    <div class="sugar-checkbox sugar-display-flex sugar-align-center" :class="dynamicClass">
+        <input type="checkbox" :value="value" :disabled="disabled" @change="change">
+        <div class="sugar-checkbox-mark"></div>
+        <div class="sugar-checkbox-label">
+            <slot></slot>
+        </div>
+    </div>
 </template>
 <script>
+import { mixinProps } from "@sugarSrc/components/mixin.js";
 export default {
-  name: 'sugar-checkbox',
-  components: {
-
-  },
-  props: {
-    value: {
-      type: [Boolean, Number, String]
+    name: "sugar-checkbox",
+    mixins: [mixinProps],
+    props: {
+        value: {
+            type: [String, Number],
+            default() {
+                return undefined
+            }
+        }
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      checked: false
-    }
-  },
-  computed: {
+    data() {
+        return {
 
-  },
-  created: function () {
-    typeof this.value === 'boolean' && (this.checked = !!this.value);
-  },
-  beforeMount: function () {
-
-  },
-  mounted: function () {
-  },
-  beforeDestroy: function () {
-
-  },
-  destroyed: function () {
-
-  },
-  methods: {
-    updateValue(value) {
-      this.$emit('input', value);
-      this.checked = value;
-      !!this.changeValEvent && this.changeValEvent(this.value);
+        }
     },
-    setValue(value, fn) {
-      this.changeValEvent = fn;
-      let i = value.findIndex((item) => {
-        return item === this.value;
-      })
-      this.checked = !!~i;
+    computed: {
+        checked(){
+            return this.$parent.values.includes(this.value);
+        },
+        dynamicClass(){
+            return {
+                "sugar-checkbox-checked":this.checked,
+                "sugar-checkbox-disabled":this.disabled
+            }
+        }
+    },
+    created: function () {
+
+    },
+    beforeMount: function () {
+
+    },
+    mounted: function () {
+
+    },
+    beforeDestroy: function () {
+
+    },
+    destroyed: function () {
+
+    },
+    methods: {
+        change(e) {
+            try {
+                this.$parent.change({
+                    value:this.value,
+                    checked:e.target.checked
+                });
+            } catch (error) {
+                console.error(error)
+            }
+        }
+    },
+    watch: {
+
+    },
+    directives: {
+
     }
-  },
-  watch: {
-
-  },
-  directives: {
-
-  }
 }
 </script>
 <style lang="scss">

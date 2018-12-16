@@ -1,178 +1,72 @@
 <template>
-  <sugar-page-content :light="true">
-    <sugar-nav-bar slot="nav">
-      Button
-    </sugar-nav-bar>
-
-    <sugar-group-list>
-      <sugar-group-item :data="theme" :autoIteration="false">
-        <section class="example-title" slot="group-bar">
-          Block + Theme
-        </section>
-        <sugar-grid :col="1" vertical="10px" :square="false" slot="group-item" slot-scope="param" class="padding-5">
-          <sugar-grid-item class="item" v-for="(item,index) in param.rows" :key="index">
-            <sugar-button block :theme="item">{{item}}</sugar-button>
-          </sugar-grid-item>
-        </sugar-grid>
-      </sugar-group-item>
-      <sugar-group-item :data="theme" :autoIteration="false">
-        <section class="example-title" slot="group-bar">
-          Block + Light + Theme
-        </section>
-        <sugar-grid :col="1" vertical="10px" :square="false" slot="group-item" slot-scope="param" class="padding-5">
-          <sugar-grid-item class="item" v-for="(item,index) in param.rows" :key="index">
-            <sugar-button block light :theme="item">{{item}}</sugar-button>
-          </sugar-grid-item>
-        </sugar-grid>
-      </sugar-group-item>
-      <sugar-group-item :data="theme" :autoIteration="false">
-        <section class="example-title" slot="group-bar">
-          Block + Light + Theme
-        </section>
-        <sugar-grid :col="1" vertical="10px" :square="false" slot="group-item" slot-scope="param" class="padding-5">
-          <sugar-grid-item class="item" v-for="(item,index) in param.rows" :key="index">
-            <sugar-button block light :theme="item">{{item}}</sugar-button>
-          </sugar-grid-item>
-        </sugar-grid>
-      </sugar-group-item>
-      <sugar-group-item :data="theme" :autoIteration="false">
-        <section class="example-title" slot="group-bar">
-          Inline + Theme
-        </section>
-        <sugar-grid spacing="small" vertical="5px" :square="false" slot="group-item" slot-scope="param" class="padding-5">
-          <sugar-grid-item class="item" v-for="(item,index) in param.rows" :key="index">
-            <sugar-button :theme="item">{{item}}</sugar-button>
-          </sugar-grid-item>
-        </sugar-grid>
-      </sugar-group-item>
-      <sugar-group-item :data="theme" :autoIteration="false">
-        <section class="example-title" slot="group-bar">
-          Inline + Light + Theme
-        </section>
-        <sugar-grid spacing="small" vertical="5px" :square="false" slot="group-item" slot-scope="param" class="padding-5">
-          <sugar-grid-item class="item" v-for="(item,index) in param.rows" :key="index">
-            <sugar-button light :theme="item">{{item}}</sugar-button>
-          </sugar-grid-item>
-        </sugar-grid>
-      </sugar-group-item>
-      <sugar-group-item :autoIteration="false">
-        <section class="example-title" slot="group-bar">
-          Custom
-        </section>
-        <div slot="group-item">
-          <sugar-cell :isArrow="false">
-            Block
-            <span slot="value">
-              <sugar-switch v-model="option.block"></sugar-switch>
-            </span>
-          </sugar-cell>
-          <sugar-cell :isArrow="false">
-            Light
-            <span slot="value">
-              <sugar-switch v-model="option.light"></sugar-switch>
-            </span>
-          </sugar-cell>
-          <sugar-cell :isArrow="false">
-            Round
-            <span slot="value">
-              <sugar-switch v-model="option.round"></sugar-switch>
-            </span>
-          </sugar-cell>
-          <sugar-cell :isArrow="false">
-            Disabled
-            <span slot="value">
-              <sugar-switch v-model="option.disabled"></sugar-switch>
-            </span>
-          </sugar-cell>
-          <sugar-cell :isArrow="false">
-            Waiting
-            <span slot="value">
-              <sugar-switch v-model="option.waiting"></sugar-switch>
-            </span>
-          </sugar-cell>
-          <sugar-cell @click="choose('theme')">
-            Theme
-            <span slot="value">
-              {{option.theme}}
-            </span>
-          </sugar-cell>
-          <sugar-cell @click="choose('size')">
-            Size
-            <span slot="value">
-              {{option.size}}
-            </span>
-          </sugar-cell>
-          <div class="padding-5">
-            <sugar-button :block="option.block" :round="option.round" :disabled="option.disabled" :waiting="option.waiting" :light="option.light" :theme="option.theme" :size="option.size">Custom</sugar-button>
-          </div>
+    <div style="padding:10px">
+        <sugar-button block size="small">block small</sugar-button>
+        <sugar-button block style="margin-top:2px">block</sugar-button>
+        <sugar-button block size="large" style="margin-top:2px">block large</sugar-button>
+        <sugar-button block theme="primary" style="margin-top:2px">primary</sugar-button>
+        <sugar-button block theme="success" style="margin-top:2px">success</sugar-button>
+        <sugar-button block theme="warning" style="margin-top:2px">warning</sugar-button>
+        <sugar-button block theme="alert" style="margin-top:2px">alert</sugar-button>
+        <sugar-button block light style="margin-top:2px">light</sugar-button>
+        <sugar-button block light theme="primary" style="margin-top:2px">light primary</sugar-button>
+        <sugar-button block light theme="success" style="margin-top:2px">light success</sugar-button>
+        <sugar-button block light theme="warning" style="margin-top:2px">light warning</sugar-button>
+        <sugar-button block light theme="alert" style="margin-top:2px">light alert</sugar-button>
+        <sugar-button size="small" style="margin-top:2px">dufault</sugar-button>
+        <sugar-button style="margin-top:2px">dufault</sugar-button>
+        <sugar-button size="large" style="margin-top:2px">dufault</sugar-button>
+        <div>
+            <sugar-button style="margin-top:2px">dufault</sugar-button>
+            <sugar-button theme="primary" style="margin-top:2px">primary</sugar-button>
+            <sugar-button theme="success" style="margin-top:2px">success</sugar-button>
+            <sugar-button theme="warning" style="margin-top:2px">warning</sugar-button>
+            <sugar-button theme="alert" style="margin-top:2px">alert</sugar-button>
         </div>
-      </sugar-group-item>
-    </sugar-group-list>
-  </sugar-page-content>
+        <div>
+            <sugar-button light style="margin-top:2px"> dufault</sugar-button>
+            <sugar-button theme="primary" light style="margin-top:2px"> primary</sugar-button>
+            <sugar-button theme="success" light style="margin-top:2px"> success</sugar-button>
+            <sugar-button theme="warning" light style="margin-top:2px"> warning</sugar-button>
+            <sugar-button theme="alert" light style="margin-top:2px"> alert</sugar-button>
+        </div>
+    </div>
 </template>
 <script>
 export default {
-  components: {
+    components: {
 
-  },
-  data() {
-    return {
-      theme: [
-        'default',
-        'primary',
-        'green',
-        'orange',
-        'red'
-      ],
-      size: [
-        'default',
-        'small',
-        'big'
-      ],
-      option: {
-        block: true,
-        light: true,
-        round: false,
-        disabled: false,
-        waiting: false,
-        theme: 'default',
-        size: 'default'
-      }
-    }
-  },
-  computed: {
+    },
+    data() {
+        return {
 
-  },
-  created: function () {
-  },
-  beforeMount: function () {
-
-  },
-  mounted: function () {
-
-  },
-  beforeDestroy: function () {
-
-  },
-  destroyed: function () {
-
-  },
-  methods: {
-    choose(type) {
-      new this.$SugarPicker({
-        data: this[type],
-        value: this.option[type],
-        onSelected: (value, row) => {
-          this.option[type] = value;
         }
-      });
+    },
+    computed: {
+
+    },
+    created: function () {
+
+    },
+    beforeMount: function () {
+
+    },
+    mounted: function () {
+
+    },
+    beforeDestroy: function () {
+
+    },
+    destroyed: function () {
+
+    },
+    methods: {
+
+    },
+    watch: {
+
+    },
+    directives: {
+
     }
-  },
-  watch: {
-
-  },
-  directives: {
-
-  }
 }
 </script>

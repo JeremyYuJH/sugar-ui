@@ -1,0 +1,17 @@
+@mixin size($size:default) {
+    @if($size==large) {
+        height: $sugar-button-height-large;
+        line-height: $sugar-button-height-large;
+        font-size: $fontsize-large;
+    }
+    @else if($size==small) {
+        height: $sugar-button-height-small;
+        line-height: $sugar-button-height-small;
+        font-size: $fontsize-small;
+    }
+    @else {
+        height: $sugar-button-height;
+        line-height: $sugar-button-height;
+        font-size: $fontsize-medium;
+    }
+}

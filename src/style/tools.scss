@@ -1,0 +1,59 @@
+@import "./mixin/flex.scss";
+
+.sugar-display-flex {
+    @include display-flex();
+}
+
+.sugar-flex-direction-row {
+    @include flex-direction();
+}
+
+.sugar-flex-direction-column {
+    @include flex-direction(column);
+}
+
+.sugar-flex-wrap-nowrap {
+    @include flex-wrap(nowrap);
+}
+
+.sugar-flex-wrap-wrap {
+    @include flex-wrap(wrap);
+}
+
+.sugar-justify-center {
+    @include justify-content(center);
+}
+
+.sugar-justify-end {
+    @include justify-content(flex-end);
+}
+
+.sugar-align-center {
+    @include align-items(center);
+}
+
+.sugar-align-end {
+    @include align-items(flex-end);
+}
+
+.sugar-flex-box {
+    @extend .sugar-display-flex;
+    @extend .sugar-flex-direction-row;
+    @extend .sugar-flex-wrap-nowrap;
+}
+
+.sugar-flex-box-column {
+    @include display-flex();
+    @extend .sugar-flex-direction-column;
+    @extend .sugar-flex-wrap-nowrap;
+}
+
+.sugar-flex-box-center {
+    @extend .sugar-flex-box;
+    @extend .sugar-align-center;
+    @extend .sugar-justify-center;
+}
+
+.sugar-flex-1 {
+    @include flex();
+}

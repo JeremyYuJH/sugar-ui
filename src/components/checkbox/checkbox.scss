@@ -1,130 +1,72 @@
-@import '~@/style/variables/variables.scss';
-@import '~@/style/mixin/mixin.scss';
-@import '~@/style/tool/tool.scss';
-.sugar-checkbox-wrap {
-    @extend .display-flex;
-    @extend .align-center;
-    position: relative;
-    padding-left: 20px;
-    height: 48px;
-    color: $sugar-color-gray;
-    font-size: $fontsize-large-x;
-    background-color: #fff;
-    &:not(:last-child) {
-        &::before {
-            content: '';
-            @include border-1px($sugar-color-gray-light-sss, bottom);
+@import "@sugarSrc/style/variables/color.scss";
+@import "@sugarSrc/style/mixin/border1px.scss";
+@import "@sugarSrc/style/tools.scss";
+@import "./checkbox.variables.scss";
+.sugar-checkbox-group {
+    &.sugar-flex-direction-column {
+        padding: 0 5px;
+        .sugar-checkbox:not(:last-child)::before {
+            @include border-1px($sugar-color-light, bottom, 0)
         }
     }
-    &>input {
+    &.sugar-flex-direction-row {
+        .sugar-checkbox:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+}
+
+.sugar-checkbox {
+    position: relative;
+    height: 36px;
+    &-disabled {
+        .sugar-checkbox-label,
+        .sugar-checkbox-mark {
+            opacity: .5;
+        }
+    }
+    &>input[type="checkbox"] {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        margin: 0;
-        padding: 0;
-        z-index: 1;
         opacity: 0;
-        &:disabled {
-            &+span,
-            &+span+label {
-                color: $sugar-color-gray-light-s
-            }
-        }
+        z-index: 1;
     }
-    &>span {
-        @extend .flex-box-center;
-        width: 18px;
-        height: 18px;
-        position: absolute;
-        right: 5px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        overflow: hidden;
-        border-radius: $sugar-border-radius-small;
-        transition: background-color .2s;
-        font-size: $fontsize-large-xx;
+    .sugar-checkbox-label {
+        font-size: 14px;
+        margin-left: 5px;
+        color: $sugar-color-gray-dark;
     }
-}
-
-.sugar-checkbox-group-horizontal {
-    @extend .display-flex;
-    @extend .flex-wrap-wrap;
-    .sugar-checkbox-wrap {
-        padding: 0 10px;
-        transition: color .38s;
-        margin-top: 1px;
+    .sugar-checkbox-mark {
+        @extend .sugar-flex-box-center;
+        width: $sugar-checkbox-mark-size;
+        height: $sugar-checkbox-mark-size;
+        border-radius: 2px;
+        position: relative;
         &::before {
-            border-bottom: none
+            @include border-1px($sugar-color-gray, all, 2px);
         }
-        &:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: calc(100% - 5px);
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            border-bottom-style: solid;
-            border-bottom-width: 2px;
-            border-bottom-color: $color-sugar;
-            transition: width .3s;
+        &::after {
+            content: "";
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+            background-color: $sugar-theme-primary;
+            transform: scale(.3);
+            opacity: 0;
+            transition: all .2s;
         }
-        &:not(:first-child) {
+    }
+    &-checked {
+        .sugar-checkbox-mark {
             &::before {
-                content: '';
-                @include border-1px($sugar-color-gray-light-sss, left);
+                border-color: $sugar-theme-primary;
+            }
+            &::after {
+                transform: scale(1);
+                opacity: 1;
             }
         }
-        &>span {
-            display: none
-        }
     }
-    .sugar-checkbox-checked {
-        &:after {
-            width: calc(100% - 20px);
-        }
-        color:$color-sugar;
-    }
-}
-
-.sugar-checkbox-disabled {
-    &:after {
-        border-bottom-color: $sugar-color-gray-light-s !important;
-    }
-}
-
-.sugar-checkbox-checked {
-    &>span {
-        color: $color-sugar;
-    }
-}
-
-.checkbox-ani-enter-active,
-.checkbox-ani-leave-active {
-    transition-property: transform;
-    transition-duration: .2s;
-}
-
-.checkbox-ani-leave-active {
-    color: $color-sugar;
-}
-
-.checkbox-ani-enter {
-    transform: translate3d(0, 100%, 0);
-}
-
-.checkbox-ani-enter-to {
-    transform: translate3d(0, 0, 0);
-}
-
-.checkbox-ani-leave {
-    transform: translate3d(0, 0, 0);
-}
-
-.checkbox-ani-leave-to {
-    transform: translate3d(0, 100%, 0);
 }
